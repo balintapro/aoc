@@ -1,11 +1,7 @@
-import * as fs from 'fs';
-
-const input = fs.readFileSync('input.txt', 'utf8');
+import fs from 'fs';
 
 // utils
-const inputLines = () => input.split('\n');
-const sum = (numbers: number[]) => numbers.reduce((a, b) => a + b);
-
+const lines = fs.readFileSync('input.txt', 'utf8').split('\n');
 const dict: { [key: string]: number } = {
     one: 1,
     two: 2,
@@ -18,22 +14,24 @@ const dict: { [key: string]: number } = {
     nine: 9,
 };
 
+const sum = (numbers: number[]) => numbers.reduce((a, b) => a + b);
+
 // part one
-const extractDigits = (str: string) => {
+const digits = (str: string) => {
     const match = str.match(/\d/g) ?? '';
     const first = parseInt(match[0]);
     const last = parseInt(match[match.length - 1]);
     return first * 10 + last;
 }
 
-console.info('First part: ', sum(inputLines().map(extractDigits)));
+console.info('First part: ', sum(lines.map(digits)));
 
-// partTwo
-const extractNumber = (str: string): number => {
+// part two
+const numbers = (str: string): number => {
     const match = str.match(/(\d|one|two|three|four|five|six|seven|eight|nine)/g) ?? '';
     const first = dict[match[0]] ?? parseInt(match[0]);
     const last = dict[match[match.length - 1]] ?? parseInt(match[match.length - 1]);
     return first * 10 + last;
 }
 
-console.info('Second part: ', sum(inputLines().map(extractNumber)));
+console.info('Second part: ', sum(lines.map(numbers)));
