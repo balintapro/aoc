@@ -27,8 +27,7 @@ const extractDigits = (str: string): string => {
     return first.toString() + last.toString();
 }
 
-const partOne = () => sum(inputLines().map(extractDigits));
-console.info('First part: ', partOne());
+console.info('First part: ', sum(inputLines().map(extractDigits)));
 
 // partTwo
 const extractNumber = (str: string): string => {
@@ -38,5 +37,4 @@ const extractNumber = (str: string): string => {
     return first.toString() + last.toString();
 }
 
-const partTwo = () => sum(inputLines().map(extractNumber));
-console.info('Second part: ', partTwo());
+console.info('Second part: ', sum(inputLines().map(extractNumber)));
