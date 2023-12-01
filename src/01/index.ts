@@ -1,7 +1,6 @@
 import * as fs from 'fs';
 
 const input = fs.readFileSync('input.txt', 'utf8');
-type ns = string;
 
 // utils
 const inputLines = () => input.split('\n')
