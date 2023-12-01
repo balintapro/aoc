@@ -4,7 +4,7 @@ const input = fs.readFileSync('input.txt', 'utf8');
 
 // utils
 const inputLines = () => input.split('\n')
-const sum = (numbers: any[]) => numbers.reduce((a: string, b: string) => parseInt(a) + parseInt(b), 0)
+const sum = (numbers: any[]) => numbers.reduce((a: string, b: string) => parseInt(a) + parseInt(b))
 
 const dict: { [key: string]: number } = {
     one: 1,
