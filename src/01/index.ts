@@ -1,8 +1,8 @@
-import exp from 'constants';
 import fs from 'fs';
+const txt = require.resolve('./input.txt');
 
 // utils
-export const lines = fs.readFileSync('input.txt', 'utf8').split('\n');
+export const lines = fs.readFileSync(txt, 'utf8').split('\n');
 const dict: { [key: string]: number } = {
     one: 1,
     two: 2,
