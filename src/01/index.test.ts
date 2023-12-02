@@ -1,5 +1,5 @@
 import { expect, test, describe } from "bun:test";
-import { input, firstPart, secondPart } from './index.ts'
+import { input, firstPart, secondPart } from './index.js'
 
 describe("checking day 1 solution", () => {
 
