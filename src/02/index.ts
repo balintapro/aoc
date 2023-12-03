@@ -9,18 +9,20 @@ const max: { [key: string]: number } = {
     blue: 14,
 };
 
-const normaliseRounds = (rounds: string[]) => {
+function normaliseRounds(rounds: string[]) {
     return rounds.map((round: string) =>
         round.split(',').map((dice: string) => {
             const [value, color] = dice.trim().split(' ');
+
             return { color, value };
         })
     );
 };
 
 // part one
-const partOne = (games: any[] | undefined) => {
+function partOne(games: any[] | undefined) {
     let validGameidSum: number = 0;
+
     games?.forEach((game: string, index) => {
         const rounds = game.split(':')[1].split(';');
         const isRoundValid = normaliseRounds(rounds).every((color: any[]) =>
@@ -31,13 +33,12 @@ const partOne = (games: any[] | undefined) => {
             validGameidSum += index + 1;
         }
     });
+
     return validGameidSum;
 };
 
-console.log("Part one: ", partOne(lines));
-
 // part two
-const partTwo = (games: any[] | undefined) => {
+function partTwo(games: any[] | undefined) {
     let validGameidSum: number = 0;
 
     (games as string[]).forEach((game: string) => {
@@ -62,8 +63,7 @@ const partTwo = (games: any[] | undefined) => {
     return validGameidSum;
 };
 
+console.log("Part one: ", partOne(lines));
 console.log("Part one: ", partTwo(lines));
 
 export { partOne, partTwo, lines as input };
-
-
