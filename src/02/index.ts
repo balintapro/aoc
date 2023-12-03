@@ -2,7 +2,7 @@ import fs from 'fs';
 const txt = require.resolve('./input.txt');
 
 // utils
-export const lines = fs.readFileSync(txt, 'utf8').split('\n');
+const input = fs.readFileSync(txt, 'utf8').split('\n');
 const max: { [key: string]: number } = {
     red: 12,
     green: 13,
@@ -63,7 +63,7 @@ function partTwo(games: any[] | undefined) {
     return validGameidSum;
 };
 
-console.log("Part one: ", partOne(lines));
-console.log("Part one: ", partTwo(lines));
+// console.log("day: 02, part 01: ", partOne(input));
+// console.log("day: 02, part 02: ", partTwo(input));
 
-export { partOne, partTwo, lines as input };
+export { partOne, partTwo, input };

@@ -2,7 +2,7 @@ import fs from 'fs';
 const txt = require.resolve('./input.txt');
 
 // utils
-const lines = fs.readFileSync(txt, 'utf8').split('\n');
+const input = fs.readFileSync(txt, 'utf8').split('\n');
 const dict: { [key: string]: number } = {
     one: 1,
     two: 2,
@@ -26,7 +26,7 @@ function digits(str: string): number {
     return parseInt(first + last);
 }
 
-function firstPart(lines: string[]) { return sum(lines.map(digits)) };
+function partOne(input: string[]) { return sum(input.map(digits)) };
 
 // part two
 function numbers(str: string): number {
@@ -37,9 +37,9 @@ function numbers(str: string): number {
     return parseInt(first + last);
 }
 
-function secondPart(lines: string[]) { return sum(lines.map(numbers)) };
+function partTwo(input: string[]) { return sum(input.map(numbers)) };
 
-console.log("Part one: ", firstPart(lines));
-console.log("Part two: ", secondPart(lines));
+// console.log("day: 01, part 01: ", partOne(input));
+// console.log("day: 01, part 02: ", partTwo(input));
 
-export { firstPart, secondPart, lines as input };
+export { partOne, partTwo, input };

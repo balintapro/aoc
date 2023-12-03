@@ -2,7 +2,7 @@ import fs from 'fs';
 const txt = require.resolve('./input.txt');
 
 // utils
-export const lines = fs.readFileSync(txt, 'utf8').split('\n');
+const input = fs.readFileSync(txt, 'utf8').split('\n');
 const symbol = /[^\d\.]/g;
 
 function partOne(input: string[]) {
@@ -38,7 +38,7 @@ function partTwo(input: string[]) {
             const gearEndIndex = gearStartIndex + 2;
 
             [lineIndex - 1, lineIndex, lineIndex + 1].forEach((index) => {
-                const numbers = [...lines[index].matchAll(/\d+/g)];
+                const numbers = [...input[index].matchAll(/\d+/g)];
 
                 numbers.forEach((numberMatch) => {
                     const [number] = numberMatch;
@@ -57,7 +57,7 @@ function partTwo(input: string[]) {
     return ratiosSum;
 }
 
-console.log("Part one: ", partOne(lines));
-console.log("Part two: ", partTwo(lines));
+console.log("day: 03, part 01: ", partOne(input));
+console.log("day: 03, part 02: ", partTwo(input));
 
-export { partOne, partTwo, lines as input };
+export { partOne, partTwo, input };
